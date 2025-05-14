@@ -1,0 +1,7 @@
+MiniLangCompiler/
+├── sample.minilang    ← Your code (written in MiniLang)
+├── lexer.py           ← Tokenizer (Lexical Analyzer)
+├── parser.py          ← Syntax Analyzer (Grammar rules)
+├── codegen.py         ← Converts to intermediate code
+├── main.py            ← Runs the compiler
+└── output.ic          ← Final intermediate code output

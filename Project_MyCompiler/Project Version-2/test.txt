@@ -1,0 +1,3 @@
+chhapo(1);
+agar (1) { chhapo(10); } warna { chhapo(0); }
+chhapo(2 + 3 * 4);

@@ -1,0 +1,3 @@
+chhapo(10);
+chhapo(0);
+chhapo(100);

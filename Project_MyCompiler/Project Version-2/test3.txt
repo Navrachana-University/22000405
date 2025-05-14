@@ -1,0 +1,3 @@
+chhapo("Hello, this is test for Compiler");
+a = 10;
+chhapo(a);

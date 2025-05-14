@@ -1,0 +1,14 @@
+D:\T.Y\Sixth_Sem\CD\Project_2>flex lexer.l
+
+D:\T.Y\Sixth_Sem\CD\Project_2>bison -d parser.y
+
+D:\T.Y\Sixth_Sem\CD\Project_2>gcc -o compiler.exe lex.yy.c parser.tab.c main.c
+
+D:\T.Y\Sixth_Sem\CD\Project_2>compiler.exe
+Output: Hello, this is test for Compiler
+Assigned 10 to variable a
+Output: 10
+
+D:\T.Y\Sixth_Sem\CD\Project_2>
+
+

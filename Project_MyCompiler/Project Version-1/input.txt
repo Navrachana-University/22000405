@@ -1,0 +1,13 @@
+input_data = '''
+a = 5;
+b = 10;
+agar (a < b) {
+    chhapo a;
+} warna {
+    chhapo b;
+}
+jabtak (a < b) {
+    a = a + 1;
+}
+chhapo a;
+'''

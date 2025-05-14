@@ -1,0 +1,477 @@
+Created by PLY version 3.11 (http://www.dabeaz.com/ply)
+
+Grammar
+
+Rule 0     S' -> program
+Rule 1     program -> statements
+Rule 2     statements -> statements statement
+Rule 3     statements -> statement
+Rule 4     statement -> ID ASSIGN expression SEMI
+Rule 5     statement -> CHHAPO expression SEMI
+Rule 6     statement -> AGAR LPAREN expression RPAREN statement WARNA statement
+Rule 7     statement -> JABTAK LPAREN expression RPAREN statement
+Rule 8     expression -> expression PLUS expression
+Rule 9     expression -> expression LT expression
+Rule 10    expression -> NUMBER
+Rule 11    expression -> ID
+Rule 12    statement -> LBRACE statements RBRACE
+
+Terminals, with rules where they appear
+
+AGAR                 : 6
+ASSIGN               : 4
+CHHAPO               : 5
+ID                   : 4 11
+JABTAK               : 7
+LBRACE               : 12
+LPAREN               : 6 7
+LT                   : 9
+NUMBER               : 10
+PLUS                 : 8
+RBRACE               : 12
+RPAREN               : 6 7
+SEMI                 : 4 5
+WARNA                : 6
+error                : 
+
+Nonterminals, with rules where they appear
+
+expression           : 4 5 6 7 8 8 9 9
+program              : 0
+statement            : 2 3 6 6 7
+statements           : 1 2 12
+
+Parsing method: LALR
+
+state 0
+
+    (0) S' -> . program
+    (1) program -> . statements
+    (2) statements -> . statements statement
+    (3) statements -> . statement
+    (4) statement -> . ID ASSIGN expression SEMI
+    (5) statement -> . CHHAPO expression SEMI
+    (6) statement -> . AGAR LPAREN expression RPAREN statement WARNA statement
+    (7) statement -> . JABTAK LPAREN expression RPAREN statement
+    (12) statement -> . LBRACE statements RBRACE
+
+    ID              shift and go to state 4
+    CHHAPO          shift and go to state 5
+    AGAR            shift and go to state 6
+    JABTAK          shift and go to state 7
+    LBRACE          shift and go to state 8
+
+    program                        shift and go to state 1
+    statements                     shift and go to state 2
+    statement                      shift and go to state 3
+
+state 1
+
+    (0) S' -> program .
+
+
+
+state 2
+
+    (1) program -> statements .
+    (2) statements -> statements . statement
+    (4) statement -> . ID ASSIGN expression SEMI
+    (5) statement -> . CHHAPO expression SEMI
+    (6) statement -> . AGAR LPAREN expression RPAREN statement WARNA statement
+    (7) statement -> . JABTAK LPAREN expression RPAREN statement
+    (12) statement -> . LBRACE statements RBRACE
+
+    $end            reduce using rule 1 (program -> statements .)
+    ID              shift and go to state 4
+    CHHAPO          shift and go to state 5
+    AGAR            shift and go to state 6
+    JABTAK          shift and go to state 7
+    LBRACE          shift and go to state 8
+
+    statement                      shift and go to state 9
+
+state 3
+
+    (3) statements -> statement .
+
+    ID              reduce using rule 3 (statements -> statement .)
+    CHHAPO          reduce using rule 3 (statements -> statement .)
+    AGAR            reduce using rule 3 (statements -> statement .)
+    JABTAK          reduce using rule 3 (statements -> statement .)
+    LBRACE          reduce using rule 3 (statements -> statement .)
+    $end            reduce using rule 3 (statements -> statement .)
+    RBRACE          reduce using rule 3 (statements -> statement .)
+
+
+state 4
+
+    (4) statement -> ID . ASSIGN expression SEMI
+
+    ASSIGN          shift and go to state 10
+
+
+state 5
+
+    (5) statement -> CHHAPO . expression SEMI
+    (8) expression -> . expression PLUS expression
+    (9) expression -> . expression LT expression
+    (10) expression -> . NUMBER
+    (11) expression -> . ID
+
+    NUMBER          shift and go to state 12
+    ID              shift and go to state 13
+
+    expression                     shift and go to state 11
+
+state 6
+
+    (6) statement -> AGAR . LPAREN expression RPAREN statement WARNA statement
+
+    LPAREN          shift and go to state 14
+
+
+state 7
+
+    (7) statement -> JABTAK . LPAREN expression RPAREN statement
+
+    LPAREN          shift and go to state 15
+
+
+state 8
+
+    (12) statement -> LBRACE . statements RBRACE
+    (2) statements -> . statements statement
+    (3) statements -> . statement
+    (4) statement -> . ID ASSIGN expression SEMI
+    (5) statement -> . CHHAPO expression SEMI
+    (6) statement -> . AGAR LPAREN expression RPAREN statement WARNA statement
+    (7) statement -> . JABTAK LPAREN expression RPAREN statement
+    (12) statement -> . LBRACE statements RBRACE
+
+    ID              shift and go to state 4
+    CHHAPO          shift and go to state 5
+    AGAR            shift and go to state 6
+    JABTAK          shift and go to state 7
+    LBRACE          shift and go to state 8
+
+    statements                     shift and go to state 16
+    statement                      shift and go to state 3
+
+state 9
+
+    (2) statements -> statements statement .
+
+    ID              reduce using rule 2 (statements -> statements statement .)
+    CHHAPO          reduce using rule 2 (statements -> statements statement .)
+    AGAR            reduce using rule 2 (statements -> statements statement .)
+    JABTAK          reduce using rule 2 (statements -> statements statement .)
+    LBRACE          reduce using rule 2 (statements -> statements statement .)
+    $end            reduce using rule 2 (statements -> statements statement .)
+    RBRACE          reduce using rule 2 (statements -> statements statement .)
+
+
+state 10
+
+    (4) statement -> ID ASSIGN . expression SEMI
+    (8) expression -> . expression PLUS expression
+    (9) expression -> . expression LT expression
+    (10) expression -> . NUMBER
+    (11) expression -> . ID
+
+    NUMBER          shift and go to state 12
+    ID              shift and go to state 13
+
+    expression                     shift and go to state 17
+
+state 11
+
+    (5) statement -> CHHAPO expression . SEMI
+    (8) expression -> expression . PLUS expression
+    (9) expression -> expression . LT expression
+
+    SEMI            shift and go to state 18
+    PLUS            shift and go to state 19
+    LT              shift and go to state 20
+
+
+state 12
+
+    (10) expression -> NUMBER .
+
+    SEMI            reduce using rule 10 (expression -> NUMBER .)
+    PLUS            reduce using rule 10 (expression -> NUMBER .)
+    LT              reduce using rule 10 (expression -> NUMBER .)
+    RPAREN          reduce using rule 10 (expression -> NUMBER .)
+
+
+state 13
+
+    (11) expression -> ID .
+
+    SEMI            reduce using rule 11 (expression -> ID .)
+    PLUS            reduce using rule 11 (expression -> ID .)
+    LT              reduce using rule 11 (expression -> ID .)
+    RPAREN          reduce using rule 11 (expression -> ID .)
+
+
+state 14
+
+    (6) statement -> AGAR LPAREN . expression RPAREN statement WARNA statement
+    (8) expression -> . expression PLUS expression
+    (9) expression -> . expression LT expression
+    (10) expression -> . NUMBER
+    (11) expression -> . ID
+
+    NUMBER          shift and go to state 12
+    ID              shift and go to state 13
+
+    expression                     shift and go to state 21
+
+state 15
+
+    (7) statement -> JABTAK LPAREN . expression RPAREN statement
+    (8) expression -> . expression PLUS expression
+    (9) expression -> . expression LT expression
+    (10) expression -> . NUMBER
+    (11) expression -> . ID
+
+    NUMBER          shift and go to state 12
+    ID              shift and go to state 13
+
+    expression                     shift and go to state 22
+
+state 16
+
+    (12) statement -> LBRACE statements . RBRACE
+    (2) statements -> statements . statement
+    (4) statement -> . ID ASSIGN expression SEMI
+    (5) statement -> . CHHAPO expression SEMI
+    (6) statement -> . AGAR LPAREN expression RPAREN statement WARNA statement
+    (7) statement -> . JABTAK LPAREN expression RPAREN statement
+    (12) statement -> . LBRACE statements RBRACE
+
+    RBRACE          shift and go to state 23
+    ID              shift and go to state 4
+    CHHAPO          shift and go to state 5
+    AGAR            shift and go to state 6
+    JABTAK          shift and go to state 7
+    LBRACE          shift and go to state 8
+
+    statement                      shift and go to state 9
+
+state 17
+
+    (4) statement -> ID ASSIGN expression . SEMI
+    (8) expression -> expression . PLUS expression
+    (9) expression -> expression . LT expression
+
+    SEMI            shift and go to state 24
+    PLUS            shift and go to state 19
+    LT              shift and go to state 20
+
+
+state 18
+
+    (5) statement -> CHHAPO expression SEMI .
+
+    ID              reduce using rule 5 (statement -> CHHAPO expression SEMI .)
+    CHHAPO          reduce using rule 5 (statement -> CHHAPO expression SEMI .)
+    AGAR            reduce using rule 5 (statement -> CHHAPO expression SEMI .)
+    JABTAK          reduce using rule 5 (statement -> CHHAPO expression SEMI .)
+    LBRACE          reduce using rule 5 (statement -> CHHAPO expression SEMI .)
+    $end            reduce using rule 5 (statement -> CHHAPO expression SEMI .)
+    RBRACE          reduce using rule 5 (statement -> CHHAPO expression SEMI .)
+    WARNA           reduce using rule 5 (statement -> CHHAPO expression SEMI .)
+
+
+state 19
+
+    (8) expression -> expression PLUS . expression
+    (8) expression -> . expression PLUS expression
+    (9) expression -> . expression LT expression
+    (10) expression -> . NUMBER
+    (11) expression -> . ID
+
+    NUMBER          shift and go to state 12
+    ID              shift and go to state 13
+
+    expression                     shift and go to state 25
+
+state 20
+
+    (9) expression -> expression LT . expression
+    (8) expression -> . expression PLUS expression
+    (9) expression -> . expression LT expression
+    (10) expression -> . NUMBER
+    (11) expression -> . ID
+
+    NUMBER          shift and go to state 12
+    ID              shift and go to state 13
+
+    expression                     shift and go to state 26
+
+state 21
+
+    (6) statement -> AGAR LPAREN expression . RPAREN statement WARNA statement
+    (8) expression -> expression . PLUS expression
+    (9) expression -> expression . LT expression
+
+    RPAREN          shift and go to state 27
+    PLUS            shift and go to state 19
+    LT              shift and go to state 20
+
+
+state 22
+
+    (7) statement -> JABTAK LPAREN expression . RPAREN statement
+    (8) expression -> expression . PLUS expression
+    (9) expression -> expression . LT expression
+
+    RPAREN          shift and go to state 28
+    PLUS            shift and go to state 19
+    LT              shift and go to state 20
+
+
+state 23
+
+    (12) statement -> LBRACE statements RBRACE .
+
+    ID              reduce using rule 12 (statement -> LBRACE statements RBRACE .)
+    CHHAPO          reduce using rule 12 (statement -> LBRACE statements RBRACE .)
+    AGAR            reduce using rule 12 (statement -> LBRACE statements RBRACE .)
+    JABTAK          reduce using rule 12 (statement -> LBRACE statements RBRACE .)
+    LBRACE          reduce using rule 12 (statement -> LBRACE statements RBRACE .)
+    $end            reduce using rule 12 (statement -> LBRACE statements RBRACE .)
+    RBRACE          reduce using rule 12 (statement -> LBRACE statements RBRACE .)
+    WARNA           reduce using rule 12 (statement -> LBRACE statements RBRACE .)
+
+
+state 24
+
+    (4) statement -> ID ASSIGN expression SEMI .
+
+    ID              reduce using rule 4 (statement -> ID ASSIGN expression SEMI .)
+    CHHAPO          reduce using rule 4 (statement -> ID ASSIGN expression SEMI .)
+    AGAR            reduce using rule 4 (statement -> ID ASSIGN expression SEMI .)
+    JABTAK          reduce using rule 4 (statement -> ID ASSIGN expression SEMI .)
+    LBRACE          reduce using rule 4 (statement -> ID ASSIGN expression SEMI .)
+    $end            reduce using rule 4 (statement -> ID ASSIGN expression SEMI .)
+    RBRACE          reduce using rule 4 (statement -> ID ASSIGN expression SEMI .)
+    WARNA           reduce using rule 4 (statement -> ID ASSIGN expression SEMI .)
+
+
+state 25
+
+    (8) expression -> expression PLUS expression .
+    (8) expression -> expression . PLUS expression
+    (9) expression -> expression . LT expression
+
+    SEMI            reduce using rule 8 (expression -> expression PLUS expression .)
+    PLUS            reduce using rule 8 (expression -> expression PLUS expression .)
+    RPAREN          reduce using rule 8 (expression -> expression PLUS expression .)
+    LT              shift and go to state 20
+
+  ! LT              [ reduce using rule 8 (expression -> expression PLUS expression .) ]
+  ! PLUS            [ shift and go to state 19 ]
+
+
+state 26
+
+    (9) expression -> expression LT expression .
+    (8) expression -> expression . PLUS expression
+    (9) expression -> expression . LT expression
+
+    SEMI            reduce using rule 9 (expression -> expression LT expression .)
+    PLUS            reduce using rule 9 (expression -> expression LT expression .)
+    LT              reduce using rule 9 (expression -> expression LT expression .)
+    RPAREN          reduce using rule 9 (expression -> expression LT expression .)
+
+  ! PLUS            [ shift and go to state 19 ]
+  ! LT              [ shift and go to state 20 ]
+
+
+state 27
+
+    (6) statement -> AGAR LPAREN expression RPAREN . statement WARNA statement
+    (4) statement -> . ID ASSIGN expression SEMI
+    (5) statement -> . CHHAPO expression SEMI
+    (6) statement -> . AGAR LPAREN expression RPAREN statement WARNA statement
+    (7) statement -> . JABTAK LPAREN expression RPAREN statement
+    (12) statement -> . LBRACE statements RBRACE
+
+    ID              shift and go to state 4
+    CHHAPO          shift and go to state 5
+    AGAR            shift and go to state 6
+    JABTAK          shift and go to state 7
+    LBRACE          shift and go to state 8
+
+    statement                      shift and go to state 29
+
+state 28
+
+    (7) statement -> JABTAK LPAREN expression RPAREN . statement
+    (4) statement -> . ID ASSIGN expression SEMI
+    (5) statement -> . CHHAPO expression SEMI
+    (6) statement -> . AGAR LPAREN expression RPAREN statement WARNA statement
+    (7) statement -> . JABTAK LPAREN expression RPAREN statement
+    (12) statement -> . LBRACE statements RBRACE
+
+    ID              shift and go to state 4
+    CHHAPO          shift and go to state 5
+    AGAR            shift and go to state 6
+    JABTAK          shift and go to state 7
+    LBRACE          shift and go to state 8
+
+    statement                      shift and go to state 30
+
+state 29
+
+    (6) statement -> AGAR LPAREN expression RPAREN statement . WARNA statement
+
+    WARNA           shift and go to state 31
+
+
+state 30
+
+    (7) statement -> JABTAK LPAREN expression RPAREN statement .
+
+    ID              reduce using rule 7 (statement -> JABTAK LPAREN expression RPAREN statement .)
+    CHHAPO          reduce using rule 7 (statement -> JABTAK LPAREN expression RPAREN statement .)
+    AGAR            reduce using rule 7 (statement -> JABTAK LPAREN expression RPAREN statement .)
+    JABTAK          reduce using rule 7 (statement -> JABTAK LPAREN expression RPAREN statement .)
+    LBRACE          reduce using rule 7 (statement -> JABTAK LPAREN expression RPAREN statement .)
+    $end            reduce using rule 7 (statement -> JABTAK LPAREN expression RPAREN statement .)
+    RBRACE          reduce using rule 7 (statement -> JABTAK LPAREN expression RPAREN statement .)
+    WARNA           reduce using rule 7 (statement -> JABTAK LPAREN expression RPAREN statement .)
+
+
+state 31
+
+    (6) statement -> AGAR LPAREN expression RPAREN statement WARNA . statement
+    (4) statement -> . ID ASSIGN expression SEMI
+    (5) statement -> . CHHAPO expression SEMI
+    (6) statement -> . AGAR LPAREN expression RPAREN statement WARNA statement
+    (7) statement -> . JABTAK LPAREN expression RPAREN statement
+    (12) statement -> . LBRACE statements RBRACE
+
+    ID              shift and go to state 4
+    CHHAPO          shift and go to state 5
+    AGAR            shift and go to state 6
+    JABTAK          shift and go to state 7
+    LBRACE          shift and go to state 8
+
+    statement                      shift and go to state 32
+
+state 32
+
+    (6) statement -> AGAR LPAREN expression RPAREN statement WARNA statement .
+
+    ID              reduce using rule 6 (statement -> AGAR LPAREN expression RPAREN statement WARNA statement .)
+    CHHAPO          reduce using rule 6 (statement -> AGAR LPAREN expression RPAREN statement WARNA statement .)
+    AGAR            reduce using rule 6 (statement -> AGAR LPAREN expression RPAREN statement WARNA statement .)
+    JABTAK          reduce using rule 6 (statement -> AGAR LPAREN expression RPAREN statement WARNA statement .)
+    LBRACE          reduce using rule 6 (statement -> AGAR LPAREN expression RPAREN statement WARNA statement .)
+    $end            reduce using rule 6 (statement -> AGAR LPAREN expression RPAREN statement WARNA statement .)
+    RBRACE          reduce using rule 6 (statement -> AGAR LPAREN expression RPAREN statement WARNA statement .)
+    WARNA           reduce using rule 6 (statement -> AGAR LPAREN expression RPAREN statement WARNA statement .)
+
